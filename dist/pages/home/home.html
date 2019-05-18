@@ -9,20 +9,109 @@
 
 <body>
 	<header>
-			<div class="swiper-container">
-					<div class="swiper-wrapper">
-						<div class="swiper-slide">Slide 1</div>
-						<div class="swiper-slide">Slide 2</div>
-						<div class="swiper-slide">Slide 3</div>
+			<div class="dm-header-box">
+				<a href="#">
+					<img class="i-logo" src="https://img.alicdn.com/tfs/TB1fbVFfu3tHKVjSZSgXXX4QFXa-230-104.png" alt="大麦">
+				</a>
+				<div class="location-header">
+					<img src="https://img.alicdn.com/tfs/TB1XHDuxNGYBuNjy0FnXXX5lpXa-28-32.png" alt="" class="i-icon-location">
+					<span class="city-location">全国</span>
+					<img src="https://img.alicdn.com/tfs/TB1vnUBxStYBeNjSspaXXaOOFXa-20-12.png" alt="" class="i-arrow-location">
+					<div class="city-header-wrap">
+						<div class="city-header" data-spm="city">
+							<div class="now-city">
+								<span class="title-city">当前城市：</span>
+								<span class="name-city">全国</span>
+							</div>
+							<div class="hot-city">
+								<div class="title-city">热门城市</div>
+								<div class="list-other">
+								</div>
+							</div>
+							<div class="other-city">
+								<div class="title-city">其他城市：</div>
+								<div class="list-other">
+									</div>
+							</div>
+						</div>
 					</div>
-					<!-- 如果需要分页器 -->
-					<div class="swiper-pagination"></div>
-					
-					<!-- 如果需要导航按钮 -->
-					<div class="swiper-button-prev"></div>
-					<div class="swiper-button-next"></div>
 				</div>
+				
+				<div class="recommend-header">
+					<a href="" class="type-recommend select">首页</a>
+					<a href=""  class="type-recommend">分类</a>
+				</div>
+				<div class="right-header">
+						<div class="box-header user-header">
+							<a href="javascript:void(0)" class="userinfo_img">
+								<img class="i-box-header i-user" src="https://img.alicdn.com/tfs/TB14UKCGQyWBuNjy0FpXXassXXa-54-54.png" alt="" srcset="">
+							</a>
+							<div class="login-user"><span class="span-box-header span-user">登录</span></div>
+						</div>
+						<div class="box-header download-header">
+								<a href="javascript:void(0)" class="userinfo_img">
+										<img class="i-box-header i-download" src="https://img.alicdn.com/tfs/TB1A9eIGKuSBuNjy1XcXXcYjFXa-54-54.png" alt="" srcset="">
+									</a>
+										<span class="span-box-header">下载</span>
+						</div>
+						<div class="box-header ">
+								<a href="javascript:void(0)" class="denglish">
+										<img class="i-box-header" src="//img.alicdn.com/tfs/TB13UKCGQyWBuNjy0FpXXassXXa-54-54.png" alt="" srcset="">
+									</a>
+										<span class="span-box-header">English</span>
+						</div>
+	
+	
+					</div>
+				<div class="search-header">
+					<img class="i-search" src="https://img.alicdn.com/tfs/TB1qv3jxGmWBuNjy1XaXXXCbXXa-34-36.png" alt="">
+					<input type="text" class="input-search" placeholder="搜索明星、演出、体育赛事">
+					<div class="btn-search">搜索</div>
+				</div>
+				
+			</div>
 	</header>
+	<div class="slider w1200" >
+		<div class="swiper-container ">
+			<div class="swiper-wrapper">
+				<div class="swiper-slide" style="background-image:url(https://img.alicdn.com/tps/i4/TB1U5hJUNTpK1RjSZFKSuu2wXXa.jpg)"></div>
+				<div class="swiper-slide" style="background-image:url(https://img.alicdn.com/tps/i4/TB1loV3V4YaK1RjSZFnSuu80pXa.jpg)"></div>
+				<div class="swiper-slide" style="background-image:url(https://img.alicdn.com/tps/i4/TB1kQsRi13tHKVjSZSgSut4QFXa.jpg)"></div>
+				
+				
+			</div>
+			<!-- 如果需要分页器 -->
+			<div class="swiper-pagination"></div>
+
+			<!-- 如果需要导航按钮 -->
+			<div class="swiper-button-prev"></div>
+			<div class="swiper-button-next"></div>
+		
+		</div>
+	</div>
+	<div class="category w1200">
+	</div>
+	<div class="dm-content-wrap">
+			<div class="dm-content dm-content-1" data-spm="card_${item}" style="display: block;">
+					<div class="head">
+						<span class="head-title">${title}</span>
+						<a href="//search.damai.cn/search.htm?ctl=%E6%BC%94%E5%94%B1%E4%BC%9A&amp;order=1" target="_blank" data-spm="dviewall">
+							<span class="head-more">查看全部</span>
+						</a>
+					</div>
+					<div class="box">
+						<a href="//detail.damai.cn/item.htm?id=594441602010" class="box-left" target="_blank" data-spm="ditem_0">
+							<img class="box-left__bg" src="">
+							<div class="box-left__info">
+								<div class="title"></div>
+								<div class="details"></div>
+							</div>
+						</a>
+						<div class="box-right">
+						</div>
+					</div>
+			</div>
+	</div>
 </body>
 <script src="../../static/scripts/require.js" data-main="home.js" type="text/javascript" charset="utf-8"></script>
 

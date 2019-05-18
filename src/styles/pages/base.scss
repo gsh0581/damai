@@ -1,5 +1,30 @@
 @import "mixins";
-.swiper-container {
-    width: 600px;
-    height: 300px;
-}  
+body, dl, dd, h1, h2, h3, h4, h5, h6,div,ul,ol, p, form,img, figure, figcaption {
+    margin:0 ;
+    padding: 0;
+}
+ul, ol {
+    list-style:none;
+}
+img{
+    border: 0;
+}
+body {
+    width:100%;
+    overflow-x:hidden;
+}
+h1,h2,h3,h4,h5,h6 {
+    font-weight:normal;
+}
+a{
+    outline: none;
+    text-decoration: none;
+    &:visited,
+    &:hover{
+            color:#ff1268;
+    }
+ }
+ .w1200{
+     width: 1200px;
+     margin: 0 auto;
+ }
