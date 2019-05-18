@@ -1,0 +1,1 @@
+"use strict";require(["../../static/conf/config.js"],function(){require(["jquery","sw"],function(i,n){new n(".swiper-container",{direction:"vertical",loop:!0,pagination:{el:".swiper-pagination"},navigation:{nextEl:".swiper-button-next",prevEl:".swiper-button-prev"}})})});

@@ -1,0 +1,25 @@
+@import "../base";
+
+$val : 20px;
+html {
+	font-size: $val;
+	height: 100%;
+	background: #f851;
+	body{
+		.box{
+			position: absolute;
+			top: 200px;
+			left:200px;
+			width: 100px;
+			height: 100px;
+			background: #fabc84;
+			border-radius: 30%;
+		}
+		.title{
+		width: 300px;
+		height:200px;
+		background:#ff0;
+	}
+	}
+	
+}
