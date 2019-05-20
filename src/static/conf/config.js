@@ -7,7 +7,8 @@ requirejs.config({
 		"jq.cookie" : "scripts/libs/jquery.cookie",
 		"bootstrap" : "scripts/libs/bootstrap",
 		"jquery.ui" : "scripts/libs/jquery-ui",
-		"css" : "scripts/libs/css"  //加载CSS文件的插件
+		"css" : "scripts/libs/css",  //加载CSS文件的插件
+		"data": "scripts/data"
 	},
 	shim : {
 		"jq.cookie" : {
