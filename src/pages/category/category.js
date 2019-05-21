@@ -104,7 +104,7 @@ require(["../../static/conf/config.js"], function () {
             success:function (data) {  
                 var result  =data.pageData.resultData;
                 for (let i = 0; i < result.length; i++) {
-                    renderItem(result[i],i);
+                    renderItem(result[i]);
                 }
                 var city = data.pageData.factMap.cityname;
                 for (let i = 0; i < city.length; i++) {
@@ -152,8 +152,35 @@ require(["../../static/conf/config.js"], function () {
        </div>`
         $('.item__box').append(tpl);
        };
+       $.ajax({
+           url:"https://search.damai.cn/external/gl.html?projects=594441602010,594350362632,594277459855,594088796138,592432015785,593992948825,593451401607,593756817833,593516280422,594538993658,593071617586,593615326552,594345563975,177014,594262939151,593960612221,592773319724,594266977600,592009864267,594650710773,593227496518,592029157846,593425703047,593234362451,593566033575,594041756268,592712478175,592880144508,592694878429,593155803884&ctl=",
+           type: "get",
+           dataType:'json',
+           success:function (data) {  
+               var suggest = data.suggest;
+               for (let i = 0; i < 3; i++) {
+                renderSuggest(suggest[i]);
+            }
+           }
 
+       })
+    function renderSuggest(data){
+        tpl = `
+        <div class="search__item">
+	<a href="//detail.damai.cn/item.htm?id=592264490493&amp;spm=a2oeg.search_category.recommend.4&amp;clicktitle=${data.projectName}" target="_blank" data-spm="test" class="search__item__poster">
+		<img src="${data.verticalPic}" alt="">
+	</a> 
+	<div class="search__item__info">
+			<a href="//detail.damai.cn/item.htm?id=592264490493&amp;spm=a2oeg.search_category.recommend.4&amp;clicktitle=${data.projectName}" target="_blank" class="search__item__info__title">《${data.projectName}》</a> 
+		<div class="search__item__info__venue">${data.venue}</div>
+		 <div class="search__item__info__venue">${data.showTime}</div> 
+		 <div class="search__item__info__price"><strong>${data.price}元</strong>起
+        </div>
+    </div>
+</div>
+        `;
+        $(".search__box").append(tpl);
 
-
+    }
     })
 })

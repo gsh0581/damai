@@ -98,13 +98,13 @@ require(["../../static/conf/config.js"], function () {
 					
 				},
 			})
-			$(".city-header").toggle();
-		// $(".location-header").on('mousemove',function () {  
-		// 	$(".city-header").show();
-		// })
-		// $(".location-header").on('mouseout',function () {  
-		// 	$(".city-header").hide();
-		// })
+			// $(".city-header").toggle();
+		$(".location-header").on('mousemove',function () {  
+			$(".city-header").show();
+		})
+		$(".location-header").on('mouseout',function () {  
+			$(".city-header").hide();
+		})
 		// 循环抓取首页
 		for (let i = 0; i <content_list.length; i++) {
 				var tpl = `<div class="dm-content dm-content-${content_list[i].id}" data-spm="card_${i}" style="display: block;">
