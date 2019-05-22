@@ -1,0 +1,551 @@
+@import "../base.scss";
+
+header {
+    a {
+        color: #888 !important;
+    }
+}
+
+.damai{
+ float: right;
+ margin-top: 90px;
+ width: 350px;
+ min-height: 310px;
+ margin-top: 90px;
+ margin-right: 40px;
+ background: #fff;
+ 
+}
+.pcbar__bd__btn {
+    float: right;
+
+    margin-top: 24px;
+    width: 121px;
+    height: 38px;
+    line-height: 38px;
+    overflow: hidden;
+    text-align: center;
+    border: 1px solid #ebebeb;
+    font-size: 14px;
+    color: #888;
+    text-decoration: none;
+}
+
+.login-wrap {
+    height: 660px;
+    background: #f6f6f6;
+}
+.fm-field {
+    position: relative;
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+.with-vertical {
+    width: 350px;
+
+    .login-tabs {
+        width: 350px;
+        margin: 0 auto 20px;
+        display: flex;
+        overflow: hidden;
+
+        .login-tabs-tab {
+            background-color: #e7e7e7;
+            border-color: #e7e7e7;
+            color: #222;
+
+            &.active {
+                border-color: #ff1268;
+                color: #ff1268;
+                background-color: #fff;
+
+            }
+
+            float: left \0;
+            width: 33% \0;
+            -webkit-box-flex: 1;
+            -ms-flex: 1;
+            flex: 1;
+            text-align: center;
+            line-height: 38px;
+            height: 38px;
+            background-color: #e7e7e7;
+            border-top: 2px solid #ccc;
+            cursor: pointer;
+            color: #222;
+            font-size: 16px
+        }
+    }
+    .fm-text{
+        width: 80%;
+    }
+}
+
+.login-label-text {
+    .fm-btn {
+        margin-top: 20px
+    }
+
+    .login-error {
+        margin-bottom: 10px
+    }
+
+    .fm-text {
+        padding-left: 10px
+    }
+
+    .phone-code-select {
+        left: 0;
+        z-index: 9
+    }
+
+    .fm-field {
+        margin-bottom: 10px;
+        
+        .fm-label {
+            padding: 5px 0;
+            display: block;
+            color: #222;
+            overflow: hidden;
+
+            .login-blocks {
+                float: right;
+                margin: 0
+            }
+        }
+    }
+}
+
+.login-label-text {
+    .fm-field.fm-field-mobile {
+        .fm-text {
+            padding-left: 80px;
+        }
+
+        .mobile-phone-code-selector-hide .fm-text {
+            padding-left: 10px;
+        }
+    }
+}
+
+.login-label-icon .fm-field .fm-label-icon {
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    color: #fff;
+    position: absolute;
+    left: 1px;
+    bottom: 1px;
+    background-color: #ccc;
+}
+
+ .login-content {
+    width: 300px;
+    margin: 0 auto; 
+}
+
+.fm-field .fm-text {
+    border-color: #e7e7e7
+}
+
+.fm-text:focus,
+.fm-text:hover {
+    border-color: #ff1268
+}
+
+.login-label-text .fm-field .fm-label {
+    color: #222
+}
+
+.login-label-icon .fm-field .fm-label {
+    background-color: #e7e7e7
+}
+
+
+.fm-button {
+    background-color: #ff1268;
+    background-image: -webkit-gradient(linear, left top, right top, from(#ff4aae), to(#ff1268));
+    background-image: linear-gradient(90deg, #ff4aae, #ff1268);
+    border-color: #ff1268
+}
+
+.phone-code-select .phone-code {
+    border-color: #e7e7e7;
+    border-bottom: 0
+}
+
+.phone-code-options {
+    border-color: #e7e7e7
+}
+
+.phone-code-options li.active,
+.phone-code-options li:hover {
+    background-color: #e7e7e7
+}
+
+.phone-code-options .fm-text:focus,
+.phone-code-options .fm-text:hover {
+    border-color: #ff1268
+}
+
+.phone-code-options .login-title {
+    color: #222
+}
+
+.qrcode-img {
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    height: 130px;
+    width: 130px
+}
+
+.qrcode-img .qrcode-error p {
+    color: #222
+}
+
+.qrcode-img .qrcode-error .refresh {
+    background: #ff1268;
+    border-color: #ff1268
+}
+
+.corner-icon-view .iconfont,
+.qrcode-desc .iconfont {
+    color: #ff1268
+}
+
+.corner-icon-view .poptip {
+    background-color: #fff;
+    border-color: #ff1268
+}
+
+.corner-icon-view .poptip .poptip-content {
+    color: #ff1268
+}
+
+.corner-icon-view .poptip .poptip-arrow em {
+    border-left-color: #ff1268
+}
+
+.corner-icon-view .poptip .poptip-arrow span {
+    border-left-color: #fff
+}
+
+.nc-container .nc_scale .imgCaptcha .nc_scale_submit {
+    background-color: #ff1268;
+    background-image: -webkit-gradient(linear, left top, right top, from(#ff4aae), to(#ff1268));
+    background-image: linear-gradient(90deg, #ff4aae, #ff1268)
+}
+
+.nc-h5-overlay .stage2 .btn-ok,
+.nc-h5-overlay .stage2 .btn-ok:disabled,
+.nc-h5-overlay .stage2 .tips {
+    background-color: #ff1268 !important
+}
+
+.login-blocks.qrcode-login-title {
+    text-align: center;
+    font-weight: 600;
+    font-size: 16px
+}
+
+.lang-en_US .sns-login-block {
+    display: none
+}
+
+
+ .width-vertical,
+ .width-vertical .login-content {
+    width: 100%
+}
+.iconfont {
+    font-family: iconfont!important;
+    font-size: 16px;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+ .fm-field  {
+    .fm-text{
+        border: 1px solid #ccc;
+        height: 42px;
+        outline: none;
+        font-size: 14px;
+        padding-left: 50px;
+        
+
+    }
+    .fm-label-icon{
+        .iconfont{
+            font-size: 24px;
+        }
+    }
+    border-color: #e7e7e7;
+   
+    
+}
+
+ .fm-text:focus,
+ .fm-text:hover {
+    border-color: #ff1268
+}
+
+ .fm-button {
+    background-color: #ff1268;
+    background-image: -webkit-gradient(linear, left top, right top, from(#ff4aae), to(#ff1268));
+    background-image: linear-gradient(90deg, #ff4aae, #ff1268);
+    border-color: #ff1268
+}
+
+ .phone-code-select .phone-code {
+    border-color: #e7e7e7;
+    border-bottom: 0
+}
+
+ .phone-code-options {
+    border-color: #e7e7e7
+}
+
+ .phone-code-options li.active,
+ .phone-code-options li:hover {
+    background-color: #e7e7e7
+}
+
+ .phone-code-options .fm-text:focus,
+ .phone-code-options .fm-text:hover {
+    border-color: #ff1268
+}
+
+ .phone-code-options .login-title {
+    color: #222
+}
+
+ .nc-container {
+    margin-top: 20px
+}
+
+ .nc-container .nc_scale .imgCaptcha .nc_scale_submit {
+    background-color: #ff1268;
+    background-image: -webkit-gradient(linear, left top, right top, from(#ff4aae), to(#ff1268));
+    background-image: linear-gradient(90deg, #ff4aae, #ff1268)
+}
+
+ .nc-h5-overlay .stage2 .btn-ok,
+ .nc-h5-overlay .stage2 .tips {
+    background-color: #ff1268 !important;
+    border-radius: 3px !important
+}
+
+ .nc-h5-overlay .stage2 .btn-ok:disabled {
+    background-color: #ff1268 !important
+}
+
+ .master-login-title {
+    display: none
+}
+
+ .fm-text {
+    border: none;
+    border-bottom: 1px solid #ddd
+}
+
+ #login-form .fm-field .fm-label {
+    display: none
+}
+
+ .fm-button {
+    font-size: 18px
+}
+
+ .fm-field-sms .send-btn {
+    border-radius: 20px;
+    padding: 0 10px;
+    margin-bottom: 8px;
+    background: #fff1f6;
+    line-height: 25px
+}
+
+ .fm-field-sms .send-btn a {
+    color: #fc347b
+}
+
+ .sns-login {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    left: 0;
+    padding: 0 20px
+}
+
+ .sns-login .sns-login-title {
+    display: inline-block;
+    text-align: center;
+    position: absolute;
+    top: -8px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    left: 50%;
+    margin-left: -55px;
+    width: 110px;
+    color: #73777a;
+    background-color: #fff;
+    line-height: 20px
+}
+
+ .sns-login #thirdpart-login {
+    width: 100%;
+    text-align: center;
+    display: inline-block;
+    padding-top: 16px;
+    border-top: 1px solid #ebecec
+}
+
+ .sns-login #thirdpart-login .thirdpart-login-icon {
+    font-family: iconfont, serif !important;
+    font-size: 43px;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: #999;
+    background-image: none;
+    background-size: inherit;
+    width: 25%;
+    height: 50px;
+    margin: 0
+}
+
+ .sns-login #thirdpart-login .icon-weixin:before {
+    content: "\E659"
+}
+
+ .sns-login #thirdpart-login .icon-qq:before {
+    content: "\E631"
+}
+
+ .sns-login #thirdpart-login .icon-weibo:before {
+    content: "\E630"
+}
+
+ .sns-login #thirdpart-login .icon-alipay:before,
+ .sns-login #thirdpart-login .icon-alipay_app:before {
+    content: "\E644"
+}
+
+ .sns-login #thirdpart-login .icon-alipay,
+ .sns-login #thirdpart-login .icon-alipay_app,
+ .sns-login #thirdpart-login .icon-weibo {
+    font-size: 40px
+}
+
+ .login-view-password a {
+    font-size: 12px;
+    float: left;
+    margin: 0;
+    color: #999
+}
+
+ .login-view-password .forgot-password-link {
+    width: 33%;
+    text-align: center
+}
+
+ .login-view-password .register-link {
+    width: 33%;
+    text-align: right
+}
+
+ .login-view-password .sms-login-link {
+    width: 33%;
+    text-align: left
+}
+
+ .login-view-sms a {
+    font-size: 12px;
+    float: left;
+    margin: 0;
+    color: #999
+}
+
+ .login-view-sms .agreement a {
+    float: none
+}
+
+ .login-view-sms .register-link {
+    width: 50%;
+    text-align: right
+}
+
+ .login-view-sms .password-login-link {
+    width: 50%;
+    text-align: left
+}
+
+ .login-view-sms .fm-field-sms-change a {
+    float: right;
+    padding-bottom: 15px
+}
+
+ .login-view-sms .fm-submit {
+    margin-top: 0
+}
+
+ .login-view-sms .sms-login-register .input-wrap-sms-loginid .icon-del {
+    display: none
+}
+
+ .input-pwa-wrap .fm-text {
+    border-bottom: none
+}
+
+ .input-pwa-wrap .underline .unfocused-line {
+    background: #e7e7e7
+}
+
+ .input-pwa-wrap .underline .focused-line {
+    background: #ff1268
+}
+
+ .fm-login-checkcode-img {
+    height: 42px;
+    float: right;
+    margin: -36px 1px 0 0
+}
+
+ .picker-modal-container .picker-modal {
+    background-color: #fff
+}
+
+ .picker-modal-container .picker-modal header {
+    background-color: #fff;
+    border-bottom: 1px solid #eee
+}
+
+ .picker-modal-container .picker-modal header .title,
+ .picker-modal-container .picker-modal header a {
+    color: #ff1268;
+    font-size: 14px
+}
+
+ .picker-modal-container .picker-item,
+ .picker-modal-container .picker-item-selected {
+    font-size: 14px
+}
+.fm-btn{
+    width: 100%;
+    .fm-button {
+        background-color: #ff1268;
+        background-image: linear-gradient(90deg,#ff4aae,#ff1268);
+        border-color: #ff1268;
+        border: 1px solid #ff9000;
+        border-radius: 3px;
+        font-size: 20px;
+        height: 42px;
+        line-height: 42px;
+        outline: none;
+        color: #fff;
+        width: 100%;
+        cursor: pointer;
+    }
+}
