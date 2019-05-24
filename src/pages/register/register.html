@@ -23,40 +23,43 @@
 			<div class="main_register">
 				<div id="container">
 					<div class="schema-form container">
-						<form class="form-horizontal col-md">
+						<form id="register" class="form-horizontal col-md" onsubmit="return checkedInfo()" action="http://localhost:9999/pages/login/login.html">
 							<div class="form-group">
-								<label for="inputNum" class="col-sm-2 control-label">手机号码</label>
+								<label for="inputNum" class="col-sm-2 control-label">手机号码：</label>
 								<div class="col-sm-10">
-									<input type="text" class="form-control " id="inputNum" >
-									<div class="next-form-item-explain">
-										手机号码不能为空
-									</div>
+									<input type="text" class="form-control " name="username" id="inputNum" maxlength="11" >
+							
 								</div>
 							</div>
 							<div class="form-group">
-								<label for="inputPassword1" class="col-sm-2 control-label">登录密码:</label>
+								<label for="inputPassword1" class="col-sm-2 control-label">登录密码：</label>
 								<div class="col-sm-10">
-									<input type="password" class="form-control" id="inputPassword1" placeholder="设置你的登录密码">
+									<input type="password" name="password" class="form-control" id="inputPassword1" placeholder="设置你的登录密码">
+									
 								</div>
 							</div>
 							<div class="form-group">
-								<label for="inputPassword2" class="col-sm-2 control-label">密码确认:</label>
+								<label for="inputPassword2" class="col-sm-2 control-label">密码确认：</label>
 								<div class="col-sm-10">
-									<input type="password" class="form-control" id="inputPassword2" placeholder="再次输入密码">
+									<input type="password" name="spass" class="form-control" id="inputPassword2" placeholder="再次输入密码">
+								
 								</div>
 							</div>
 							<div class="form-group">
 								<div class="col-sm-offset-2 col-sm-10">
 									<div class="checkbox">
 										<label>
-											<input type="checkbox"> 我已阅读并同意《会员协议》和《隐私权条款》
+											<input name="accept" id="checkbox" type="checkbox"> 我已阅读并同意《会员协议》和《隐私权条款》
+										
 										</label>
+									
+									
 									</div>
 								</div>
 							</div>
 							<div class="form-group">
 								<div class="col-sm-offset-2 col-sm-10">
-									<button type="submit" class="btn-next">注册</button>
+									<button id='submitbtn' class="btn-next">注册</button>
 								</div>
 							</div>
 						</form>
@@ -215,5 +218,22 @@
 
 </body>
 <script src="../../static/scripts/require.js" data-main="register.js" type="text/javascript" charset="utf-8"></script>
-
+<script>
+	function checkedInfo() {
+            var user = $('#inputNum').val();
+						var psw = $('#inputPassword1').val();
+						var people = {
+							"user": user,
+							"psw":psw
+						}
+						console.log(user,psw);
+            if(user !== undefined && psw !==undefined){
+              $.cookie("people", JSON.stringify(people),{path:"/"});
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
+</script>
 </html>

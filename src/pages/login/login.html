@@ -13,53 +13,51 @@
 			<a href="#">
 				<img class="i-logo" src="https://img.alicdn.com/tfs/TB1fbVFfu3tHKVjSZSgXXX4QFXa-230-104.png" alt="大麦">
 			</a>
-            <a href="https://en.damai.cn/?spm=a211rg.193253.1012363.2.47f17de2mUwbIo" target="_blank" class="pcbar__bd__btn" data-spm-anchor-id="a211rg.193253.1012363.2">English</a>
+			<a href="https://en.damai.cn/?spm=a211rg.193253.1012363.2.47f17de2mUwbIo" target="_blank"
+				class="pcbar__bd__btn" data-spm-anchor-id="a211rg.193253.1012363.2">English</a>
 		</div>
 	</header>
-    <div class="ModContainer">
-        <div class="module-wrap login-wrap">
-            <div id="login" class="with-vertical login-label-icon login-view-password damai">
-            
-                   <div class="login-tabs" id="login-tabs">
-                       <div class="login-tabs-tab active">密码登录</div>
-                       <div class="login-tabs-tab">短信登录</div>
-                       <div class="login-tabs-tab">扫码登录</div>
-                   </div>
-                   <div class="login-content nc-outer-box">
-                       <div class="login-password">
-                           <div class="login-error"></div>
-                           <form action="" id="login-form" class="login-form">
-                               <div class="fm-field">
-                                   <div>
-                                       <label class="fm-label-icon">
-                                           <i class="icon-user iconfont" title= "用户名"></i>
-                                       </label>
-                                   </div>
-                                   <div class="input-plain-wrap input-wrap-loginid">
-                                       <input type="text" class="fm-text" id="fm-login-id"
-                                       tabindex="1" aria-label="请输入手机号或邮箱" placeholder="请输入手机号或邮箱" autocapitalize="off">
-                                   </div>
-                               </div>
-                               <div class="fm-field">
-                                   <div>
-                                       <label class="fm-label-icon"></label>
-                                   </div>
-                                   <div class="input-plain-wrap input-wrap-password">
-                                       <input type="password" class="fm-text" id="fm-login-password"
-                                       tabindex="2" aria-label="请输入登录密码" placeholder="请输入登录密码" maxlength="40" autocomplete="off" autocapitalize="off">
-                                   </div>
-                               </div>
-                               <div class="fm-btn">
-                                   <button type="submit" tabindex="3" class="fm-button fm-submit password-login">登录</button>
-                               </div>
-                           </form>
-                       </div>
-              
-               </div>
-            </div>
-        </div>
-    </div>
-	
+	<div class="ModContainer">
+		<div class="module-wrap login-wrap">
+			<div id="login" class="with-vertical login-label-icon login-view-password damai">
+
+				<div class="login-tabs" id="login-tabs">
+					<div class="login-tabs-tab active">密码登录</div>
+					<div class="login-tabs-tab">短信登录</div>
+					<div class="login-tabs-tab">扫码登录</div>
+				</div>
+				<div class="login-content nc-outer-box">
+					<div class="login-password">
+						<div class="login-error"></div>
+						<form action="http://localhost:9999/pages/home/home.html" id="login-form" class="login-form"
+							onsubmit="return checkInfo()">
+							<div class="fm-field">
+
+								<div class="input-plain-wrap input-wrap-loginid">
+									<input type="text" class="fm-text" id="fm-login-id" tabindex="1" name="username"
+										aria-label="请输入手机号或邮箱" placeholder="请输入手机号或邮箱" autocapitalize="off">
+								</div>
+							</div>
+							<div class="fm-field">
+
+								<div class="input-plain-wrap input-wrap-password">
+									<input type="password" class="fm-text" id="fm-login-password" tabindex="2"
+										name="password" aria-label="请输入登录密码" placeholder="请输入登录密码" maxlength="40"
+										autocomplete="off" autocapitalize="off">
+								</div>
+							</div>
+							<div class="fm-btn">
+								<button type="submit" tabindex="3"
+									class="fm-button fm-submit password-login">登录</button>
+							</div>
+						</form>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+
 
 	<footer class="dm-footer">
 		<div class="w1200">
@@ -209,5 +207,18 @@
 
 </body>
 <script src="../../static/scripts/require.js" data-main="login.js" type="text/javascript" charset="utf-8"></script>
+<script>
+	function checkInfo() {
+		let cookieuser = JSON.parse($.cookie("people"));
+		console.log(cookieuser)
+		var user = $('#fm-login-id').val();
+		var psw = $('#fm-login-password').val();
+		if (user == cookieuser.user && cookieuser.psw == psw) {
+			$(".span-user").attr("status", 1);
+			return true;
+		}
+		return false;
+	}
+</script>
 
 </html>
