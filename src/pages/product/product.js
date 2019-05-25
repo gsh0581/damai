@@ -38,7 +38,6 @@ require(["../../static/conf/config.js"], function () {
                 let title = `【${getUrlParam('city')}】${res.itemTitle}【网上订票】- 大麦网`;
                 $('title').html(title);
                 
-                console.log(res);
                 itemId = res.itemId;
                 performTime=  res.performTime || res.itemPerforms[0].performs[0];
                 $('.poster').attr("src",res.itemPic);
@@ -60,7 +59,7 @@ require(["../../static/conf/config.js"], function () {
         $(document).ready(function(){
            
 			var status = $(".span-user").attr("status");
-			if (status == 0) {
+			if (status == 0 && $.cookie("people")!=undefined) {
 				let cookieuser = JSON.parse($.cookie("people"));
 				var valuename = cookieuser.user;
 				if (valuename.length > 1) {
@@ -140,7 +139,6 @@ require(["../../static/conf/config.js"], function () {
 
             t.val(parseInt(t.val()) - 1);
             if (parseInt(t.val()) <= 1) {
-                console.log("!");
                 $(this).addClass('cafe-c-input-number-handler-disabled');
                 t.val(1);
 

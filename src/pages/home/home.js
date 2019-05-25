@@ -61,7 +61,7 @@ require(["../../static/conf/config.js"], function () {
 		var content_list = [{ "name": "演唱会", "id": "1" }, { "name": "话剧歌剧", "id": "3" }, { "name": "体育比赛", "id": "6", "link": "https://p.damai.cn/wow/pc/act/sports" }, { "name": "儿童亲子", "id": "100" }]
 		$(document).ready(function(){
 			var status = $(".span-user").attr("status");
-			if (status == 0 && $.cookie("people")!='') {
+			if (status == 0 && $.cookie("people")!=undefined) {
 				let cookieuser = JSON.parse($.cookie("people"));
 				var valuename = cookieuser.user;
 				if (valuename.length > 1) {
