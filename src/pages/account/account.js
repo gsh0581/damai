@@ -1,5 +1,23 @@
 require(["../../static/conf/config.js"], function() {
     require(["jquery","vali","jq.cookie"], function($) {
+        $(document).ready(function(){
+			var status = $(".span-user").attr("status");
+			if (status == 0 && $.cookie("people")!=undefined) {
+				let cookieuser = JSON.parse($.cookie("people"));
+				var valuename = cookieuser.user;
+				if (valuename.length > 1) {
+					$(".span-user").html(valuename);
+					$(".span-user").attr("status", 1);
+				}
+				else {
+					$(".span-user").html("登录");
+				}
+
+			}else{
+                window.location.href="http://localhost:9999/pages/login/login.html"
+            }
+			
+		})	
             //从cookie中获取plist
             if($.cookie("plist") !=null){
                     var plist_str = JSON.parse($.cookie("plist"));

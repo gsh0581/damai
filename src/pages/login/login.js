@@ -19,6 +19,9 @@ require(["../../static/conf/config.js"], function() {
             }
 
         });
+        $(".register").on("click",function(){
+            window.location.href="http://localhost:9999/pages/register/register.html"
+        })
     })
 
 })
