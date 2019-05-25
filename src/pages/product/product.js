@@ -1,14 +1,32 @@
 require(["../../static/conf/config.js"], function () {
-    require(["jquery","jq.cookie","data"], function ($) {
+    require(["jquery","jq.cookie"], function ($) {
         let itemId;
         let performTime;
+        //获取url中的参数
+        function getUrlParam(name,url=window.location.href) {  
+            var pattern = new RegExp("[?&]"+name+"\=([^&]+)", "g");  
+            var matcher = pattern.exec(url);  
+            var items = null;  
+            if(null != matcher){  
+                    try{  
+                           items = decodeURIComponent(decodeURIComponent(matcher[1]));  
+                    }catch(e){  
+                            try{  
+                                    items = decodeURIComponent(matcher[1]);  
+                            }catch(e){  
+                                    items = matcher[1];  
+                            }  
+                    }  
+            }  
+            return items;  
+       }  
         var tips = [
             {
 
             }
         ];
         $.ajax({
-            url: `https://detail.damai.cn/subpage?itemId=594441602010&dmChannel=pc@damai_pc&dataId=210041053&dataType=2&bizCode=ali.china.damai&scenario=itemsku&privilegeActId=&callback=jsonp88`,
+            url: `https://detail.damai.cn/subpage?itemId=${getUrlParam('id')}&dmChannel=pc@damai_pc&dataType=2&bizCode=ali.china.damai&scenario=itemsku&privilegeActId=&callback=jsonp88`,
             dataType: 'jsonp',
             type: "get",
             jsonpCallback: "jsonp88",
@@ -17,20 +35,21 @@ require(["../../static/conf/config.js"], function () {
             success: function (data) {
 
                 var res = data.detailViewComponentMap.itemSku;
-                let title = `【北京】${res.itemTitle}【网上订票】- 大麦网`;
+                let title = `【${getUrlParam('city')}】${res.itemTitle}【网上订票】- 大麦网`;
                 $('title').html(title);
-                res.itemTitle;
-                res.performDesc;
+                
+                console.log(res);
                 itemId = res.itemId;
-                performTime=  res.performTime;
-                $('tips').next().attr("data-src", res.itemPic);
-                $('.order').find('.title').html(res.itemTitle);
-                $('.time').html(`时间：${res.performName}`);
-                $('.presell').html(`${res.performTagDesc ? res.performTagDesc : ''}`);
-                $('.presell').next().html(res.performName);
-                $('perform__desc__info__active').html(`<p>${res.performDesc}</p>`);
+                performTime=  res.performTime || res.itemPerforms[0].performs[0];
+                $('.poster').attr("src",res.itemPic);
+                $('.order').find('.title').html(`【${getUrlParam('city')}】${res.itemTitle}`);
+                $('.addr').html(`场馆：${getUrlParam('city')} | ${getUrlParam('venue')}`);
+                $('.time').html(`时间：${res.performName?res.performName:res.itemPerforms[0].performs[0].performName}`);
+                $('.presell').html(`${res.performTagDesc?res.performTagDesc:''}`);
+                $('.presell').next().html(res.performName?res.performName:res.itemPerforms[0].performs[0].performName);
+                $('perform__desc__info__active').html(`<p>${res.performDesc?res.performDesc:res.itemPerforms[0].performs[0].performDesc}</p>`);
                 let tpl = `
-                <img data-v-49c1c56a="" src="https://damai-item.oss-cn-beijing.aliyuncs.com/projQcode/${res.itemId.substr(0, res.itemId.length - 2)}/2/${res.itemId}.jpg" alt="" class="service-qrcode-img">
+                <img data-v-49c1c56a="" src="https://damai-item.oss-cn-beijing.aliyuncs.com/projQcode/${getUrlParam('id').substr(0,getUrlParam('id').length - 2)}/2/${getUrlParam('id')}.jpg" alt="" class="service-qrcode-img">
                 `;
                 $('.service-qrcode').append(tpl);
                 for (let i = 0; i < res.skuList.length; i++) {
@@ -39,6 +58,7 @@ require(["../../static/conf/config.js"], function () {
             },
         })
         $(document).ready(function(){
+           
 			var status = $(".span-user").attr("status");
 			if (status == 0) {
 				let cookieuser = JSON.parse($.cookie("people"));
@@ -57,32 +77,43 @@ require(["../../static/conf/config.js"], function () {
         function render_sku(data) {
             let tpl = `<div class="select_right_list_item sku_item">
            <div class="skuname" >${data.skuName}</div></div>`;
+           if(data.skuTagType == 1){
+             tpl = `<div class="select_right_list_item sku_item">
+             <span class="notticket">${data.skuTag}</span>
+            <div class="skuname" >${data.skuName}</div></div>`;
+        }
             $('.sku').append(tpl);
             if ($('.sku_item').length == 1) {
                 $('.sku_item').addClass("active");
+            }
+            if($('.sku_item.active').has('.notticket').length){
+                $('.buybtn').html("提交缺货登记");
+                $('.buybtn').attr("type","button");
+                $(".perform__order__price").css('display','none');
+                
+            }else{
+                $('.buybtn').html("立即预定");
+                $(".perform__order__price").css('display','flex');
+                $('.buybtn').attr("type","submit");
             }
             totalprice();
         }
         $('.sku').on("click", '.sku_item', function (e) {
             $(".sku").children().removeClass('active');
             $(this).addClass("active");
+            if($(this).has('.notticket').length){
+                $('.buybtn').html("提交缺货登记");
+                $('.buybtn').attr("type","button");
+                $(".perform__order__price").css('display','none');
+                
+            }else{
+                $('.buybtn').html("立即预定");
+                $(".perform__order__price").css('display','flex');
+                $('.buybtn').attr("type","submit");
+            }
             totalprice();
         })
-        $(document).ready(function(){
-            var status = $(".span-user").attr("status");
-            if (status == 0) {
-                var valuename = $.cookie("name");
-                if (valuename.length > 1) {
-                    $(".span-user").html(valuename);
-                    $(".span-user").attr("status", 1);
-                }
-                else {
-                    $(".span-user").html("登录");
-                }
-        
-            }
-            
-        })	
+       
         $('.cafe-c-input-number-input').on('input propertychange', function () {
             var count = $(this).val();
             if (count > 6) {
@@ -129,18 +160,29 @@ require(["../../static/conf/config.js"], function () {
             }
         })
         function totalprice() {
-            let count = $(".cafe-c-input-number-input").val();
-            let price = $(".active").find(".skuname").text().match(/\d+/);
-            let tpl = `<i>￥</i>${parseInt(price[0]) * parseInt(count)}.00`;
-
-            $(".totol__price").html(tpl);
+           
+          
+                let count = $(".cafe-c-input-number-input").val();
+                let price = $(".active").find(".skuname").text().match(/\d+/);
+                let tpl = `<i>￥</i>${parseInt(price[0]) * parseInt(count)}.00`;
+    
+                $(".totol__price").html(tpl);
+            
+          
 
         }
+        $('.toast-btn').on("click",function(){
+            $('.toast').css('display','none');
+        })
+
         $(".buybtn").on("click", function () {
+            if($(this).attr("type") == "button"){
+                $('.toast').css('display','flex');
+            }
             let name = JSON.parse($.cookie("people")).user;
             var title = $('.order').find('.title').text();
             let count = $(".cafe-c-input-number-input").val();
-            let imgsrc =  $('.poster').attr("data-src");
+            let imgsrc =  $('.poster').attr("src");
             if (name.length > 1) {
                 let price = $(".totol__price").text();
                 let outTradeNo = "";  //订单号
@@ -176,7 +218,6 @@ require(["../../static/conf/config.js"], function () {
 						if(res) item.count++; //如果存在,则把商品数量+1
 						return res;
 					})
-					
 					if(!isExist) {//如果不存在
 						plist.push(obj); //把刚才封装的对象,存入数组当中
 					} 
@@ -184,8 +225,9 @@ require(["../../static/conf/config.js"], function () {
 					$.cookie("plist", JSON.stringify(plist), { path: '/' });
             }
         })
+        
     })
-
+    
 
 
 })

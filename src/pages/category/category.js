@@ -58,25 +58,22 @@ require(["../../static/conf/config.js"], function () {
 			},
         ]
     var tpl;
-        // $.ajax({
-        //     url: `https://api-gw.damai.cn/cityList.html?_ksTS=1558163181541_52`,
-        //     dataType:'jsonp',
-        //     type: "get",
-        //     processData: false, 
-        //     crossDomain: true,
-        //     success: function (data) {
-               
-        //         for (const key in data.allCities) {
-                   
-        //             if( data.allCities[key] == "境外"){
-        //                 break;
-        //             }
-        //             tpl = ` <span class="factor-content-item" >${data.allCities[key]} </span>`;
-        //              $('.city').append(tpl);
-        //         }
-        //         $('.city').children().slice(19,-1).toggle();
-        //     },
-        // })
+    $(document).ready(function(){
+        var status = $(".span-user").attr("status");
+        if (status == 0 && $.cookie("people")!='') {
+            let cookieuser = JSON.parse($.cookie("people"));
+            var valuename = cookieuser.user;
+            if (valuename.length > 1) {
+                $(".span-user").html(valuename);
+                $(".span-user").attr("status", 1);
+            }
+            else {
+                $(".span-user").html("登录");
+            }
+
+        }
+        
+    })
         var $fold =  $('.city').next(); 
         
         $fold.on("click",function(){
@@ -113,21 +110,21 @@ require(["../../static/conf/config.js"], function () {
                 }
                 
                 $('.city').children().slice(20).toggle();
-                    console.log(data);
+                   
                    $('.search-box-keyword').html(data.pageData.totalResults);
             }
         })
        function renderItem(data){
            tpl = `
            <div data-v-678d2ef7="" class="items">
-           <a data-v-678d2ef7="" href="//detail.damai.cn/item.htm?id=594441602010&amp;clicktitle=UNINE%E7%B2%89%E4%B8%9D%E8%A7%81%E9%9D%A2%E4%BC%9A%E2%80%9CRUN%20TO%20U%E2%80%9D%E5%8C%97%E4%BA%AC%E7%AB%99" target="_blank" class="items__img">
+           <a data-v-678d2ef7="" href="http://localhost:9999/pages/product/product.html?id=${data.projectid}&venue=${data.venue}&city=${data.venuecity}" target="_blank" class="items__img">
                <span data-v-678d2ef7="" class="items__img__tag">${data.categoryname}</span>
                <img data-v-678d2ef7="" alt="项目图片" data-src="//img.alicdn.com/bao/uploaded/i4/2251059038/O1CN01cPCWOe2GdSAdmixz2_!!0-item_pic.jpg_q60.jpg_.webp" src="${data.verticalPic}" lazy="loaded">
            </a>
            <div data-v-678d2ef7="" class="items__txt">
                <div data-v-678d2ef7="" class="items__txt__title">
                    <span data-v-678d2ef7="">【${data.cityname}】</span>
-                   <a data-v-678d2ef7="" href="//detail.damai.cn/item.htm?spm=a2oeg.search_category.0.0.16954d156XGYEl&amp;id=594441602010&amp;clicktitle=UNINE%E7%B2%89%E4%B8%9D%E8%A7%81%E9%9D%A2%E4%BC%9A%E2%80%9CRUN%20TO%20U%E2%80%9D%E5%8C%97%E4%BA%AC%E7%AB%99" target="_blank" data-spm-anchor-id="a2oeg.search_category.0.0">${data.name}
+                   <a data-v-678d2ef7="" href="http://localhost:9999/pages/product/product.html?id=${data.projectid}&venue=${data.venue}&city=${data.venuecity}" target="_blank" >${data.name}
                    </a>
                </div>
                <!---->
@@ -159,7 +156,7 @@ require(["../../static/conf/config.js"], function () {
            success:function (data) {  
                var suggest = data.suggest;
                for (let i = 0; i < 3; i++) {
-                renderSuggest(suggest[i]);
+               renderSuggest(suggest[i]);
             }
            }
 
@@ -167,11 +164,11 @@ require(["../../static/conf/config.js"], function () {
     function renderSuggest(data){
         tpl = `
         <div class="search__item">
-	<a href="//detail.damai.cn/item.htm?id=592264490493&amp;spm=a2oeg.search_category.recommend.4&amp;clicktitle=${data.projectName}" target="_blank" data-spm="test" class="search__item__poster">
+	<a href="http://localhost:9999/pages/product/product.html?id=${data.projectId}" target="_blank" data-spm="test" class="search__item__poster">
 		<img src="${data.verticalPic}" alt="">
 	</a> 
 	<div class="search__item__info">
-			<a href="//detail.damai.cn/item.htm?id=592264490493&amp;spm=a2oeg.search_category.recommend.4&amp;clicktitle=${data.projectName}" target="_blank" class="search__item__info__title">《${data.projectName}》</a> 
+			<a href="http://localhost:9999/pages/product/product.html?id=${data.projectId}" target="_blank" class="search__item__info__title">《${data.projectName}》</a> 
 		<div class="search__item__info__venue">${data.venue}</div>
 		 <div class="search__item__info__venue">${data.showTime}</div> 
 		 <div class="search__item__info__price"><strong>${data.price}元</strong>起

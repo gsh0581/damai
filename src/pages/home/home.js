@@ -62,7 +62,7 @@ require(["../../static/conf/config.js"], function () {
 		var content_list = [{ "name": "演唱会", "id": "1" }, { "name": "话剧歌剧", "id": "3" }, { "name": "体育比赛", "id": "6", "link": "https://p.damai.cn/wow/pc/act/sports" }, { "name": "儿童亲子", "id": "100" }]
 		$(document).ready(function(){
 			var status = $(".span-user").attr("status");
-			if (status == 0) {
+			if (status == 0 && $.cookie("people")!='') {
 				let cookieuser = JSON.parse($.cookie("people"));
 				var valuename = cookieuser.user;
 				if (valuename.length > 1) {
@@ -122,6 +122,7 @@ require(["../../static/conf/config.js"], function () {
 		})
 		$(".out-login").on("click",function(){
 			$.cookie('people', '',{ path: '/' });
+			$.cookie('plist', '',{ path: '/' });
 		
 		})
 		// 循环抓取首页
@@ -171,7 +172,7 @@ require(["../../static/conf/config.js"], function () {
 			for (let index = 1; index < data.length; index++) {
 
 				var tpl = `
-			<a href="//detail.damai.cn/item.htm?id=594350362632" class="box-right__item" data-spm="ditem_${index}" target="_blank">
+			<a href="http://localhost:9999/pages/product/product.html?id=${data[index].id}" class="box-right__item" data-spm="ditem_${index}" target="_blank">
 				<div class="itemimg">
 					<img src="${data[index].verticalPic}">
 				</div>
