@@ -27,7 +27,7 @@ http://localhost:9999/pages/home/home.html
 - 在issue区
 - https://github.com/gsh0581/damai/issues
 ## 项目目录
-.
+```
 ├── LICENSE
 ├── README.md
 ├── dist
@@ -151,3 +151,4 @@ http://localhost:9999/pages/home/home.html
 │       │       └── register.scss
 │       └── swiper.scss
 └── tree.md
+```
