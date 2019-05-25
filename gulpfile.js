@@ -41,9 +41,8 @@ gulp.task("server", function () {
 		.pipe(webserver({
 			livereload: true,
 			port: 9999,
-			
 			//接口代理服务器
-			
+			fallback:'index.html'
 			
 		}))
 	gulp.watch("src/pages/**/*.js", ["compileJS"]);

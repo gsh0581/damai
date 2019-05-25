@@ -15,7 +15,7 @@
 - `gulp server`
 
 # 入口文件地址
-http://localhost:9999/pages/home/home.html
+http://localhost:9999
 
 ## 环境参数
 - 技术语言 ：HTML、ES6、Sass
