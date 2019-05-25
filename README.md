@@ -6,6 +6,8 @@
 
 ### 🎉安装与下载预览
 - 下载地址 https://github.com/gsh0581/damai/releases
+- npm 下载安装：
+- `npm i damai-gsh`
 - 安装依赖包
 - `npm install`
 - 运行
