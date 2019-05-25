@@ -1,32 +1,3 @@
-# 💕damai
-- 💝 纯前端实现的大麦网购票网站，利用gulp进行项目的基本构建。
-- ✨ 数据接口基本来自原站，通过ajax请求获取数据并渲染页面。
-- 🍻 登录注册、购物车功能利用cookie实现。
-- ❌ 搜索功能暂未实现，后续版本持续迭代中...
-
-### 🎉安装与下载预览
-- 下载地址 https://github.com/gsh0581/damai/releases
-- 安装依赖包
-- `npm install`
-- 运行
-- `gulp build`
-- `gulp server`
-
-# 入口文件地址
-http://localhost:9999/pages/home/home.html
-
-## 环境参数
-- 技术语言 ：HTML、ES6、Sass
-- 框架： Swiper、Bootstrap、jQuery
-- 插件： jquery.validate、jquery.cookie
-- 构建工具： gulp3.9.1
-- 开发工具：VsCode
-
-
-## 交流&提问
-- 在issue区
-- https://github.com/gsh0581/damai/issues
-## 项目目录
 .
 ├── LICENSE
 ├── README.md
@@ -151,3 +122,5 @@ http://localhost:9999/pages/home/home.html
 │       │       └── register.scss
 │       └── swiper.scss
 └── tree.md
+
+46 directories, 77 files

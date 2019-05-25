@@ -1,7 +1,6 @@
 require(["../../static/conf/config.js"], function () {
-	require(["jquery", "sw", "jq.cookie",], function ($, Swiper) {
-		var jsonp53 = {};
-		var content = {};
+	require(["jquery", "sw", "jq.cookie"], function ($, Swiper) {
+
 		var category = [
 			{
 				href: "//search.damai.cn/search.htm?ctl=%E6%BC%94%E5%94%B1%E4%BC%9A&order=1&cty=",

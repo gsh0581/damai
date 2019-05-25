@@ -1,8 +1,5 @@
 require(["../../static/conf/config.js"], function() {
     require(["jquery","vali","jq.cookie"], function($) {
-      
-        var errorMsg;
-        var tpl;
         $("#register").validate({
             rules:{
                 username:{
