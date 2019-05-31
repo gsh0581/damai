@@ -5,8 +5,9 @@ const babel = require("gulp-babel");
 const uglify = require("gulp-uglify");
 const sass = require("gulp-sass");
 const csso = require("gulp-csso");
-const autoprefixer = require("gulp-autoprefixer")
-
+const autoprefixer = require("gulp-autoprefixer");
+const https = require('https');
+const http = require("http")
 gulp.task("compileJS", () => {
 	gulp.src("src/scripts/**/*.js")
 		.pipe(babel({
@@ -33,6 +34,10 @@ gulp.task("compileHTML", () => {
 	gulp.src("src/pages/**/*.html")
 		.pipe(gulp.dest("dist/pages"))
 })
+gulp.task("complieFont",()=>{
+	gulp.src("src/styles/fonts/**")
+	.pipe(gulp.dest("dist/styles/fonts"))
+})
 
 
 gulp.task("server", function () {
@@ -42,9 +47,9 @@ gulp.task("server", function () {
 			livereload: true,
 			port: 9999,
 			//接口代理服务器
-			fallback:'index.html'
-			
+
 		}))
+	gulp.watch("src/styles/fonts/**", ["complieFont"]);
 	gulp.watch("src/pages/**/*.js", ["compileJS"]);
 	gulp.watch("src/scripts/**/*.js", ["compileJS"]);
 	gulp.watch("src/styles/**/*.scss", ["compileCSS"]);
@@ -53,4 +58,4 @@ gulp.task("server", function () {
 })
 
 
-gulp.task("build", ["compileJS", "compileCSS", "compileHTML"])
+gulp.task("build", ["compileJS", "compileCSS","complieFont", "compileHTML"])
